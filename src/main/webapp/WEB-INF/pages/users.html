@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+
+    <p th:text="${str}"/>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>SecondName</th>
+            <th>Age</th>
+        </tr>
+        <th:block th:each="msq" items="${users}">
+            <h1 th:text="${msq}"></h1>
+            <tr>
+                <td>${msq.id}</td>
+                <td>${msq.firstName}</td>
+                <td>${msq.secondName}</td>
+                <td>${msq.age}</td>
+                <th><a href="/update?id=${msq.id}">Change</a></th>
+                <th><a href="/delete?id=${msq.id}">Delete</a></th>
+            </tr>
+        </th:block>
+    </table>
+
+    <table>
+    <a href="addUser.html">Add User</a>
+<!--    <a href="deleteUser.html">Delete User</a>-->
+<!--    <a href="updateUser.html">Update User</a>-->
+    </table>
+
+</body>
+</html>
