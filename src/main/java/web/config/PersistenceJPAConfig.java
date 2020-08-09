@@ -45,10 +45,8 @@ public class PersistenceJPAConfig {
             EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
-
         return transactionManager;
     }
-
 
     Properties additionalProperties() {
         Properties properties = new Properties();
@@ -67,8 +65,6 @@ public class PersistenceJPAConfig {
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(additionalProperties());
-//        em.setPersistenceUnitName("name");
-
         return em;
     }
 

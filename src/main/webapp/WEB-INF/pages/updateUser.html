@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Update_User</title>
 </head>
 <body>
-
-<form action="/update" method="POST">
+<form action="/update/" method="POST">
     <input type="hidden" name="id" value="${user.id}">
 
     <label for="firstName">FirstName</label>
@@ -18,8 +17,45 @@
     <label for="age">Age</label>
     <input type="text" name="age" id="age">
 
-    <input type="submit" value="Update User">
+    <input type="submit" value="Add User">
 </form>
+
+<!--<form action="#" th:action="{update}" th:object="${user}" method="post">-->
+<!--    <label for="id">Id</label>-->
+<!--    <input readonly type="number" th:field="{id}" id="id" placeholder="Id">-->
+<!--    <br/>-->
+<!--    <label for="firstName">FirstName</label>-->
+<!--    <input type="text" th:field="{firstName}" id="firstName" placeholder="FirstName">-->
+<!--    <br/>-->
+<!--    <label for="secondName">SecondName</label>-->
+<!--    <input type="text" th:field="{secondName}" id="secondName" placeholder="SecondName">-->
+<!--    <br/>-->
+<!--        <label for="age">Age</label>-->
+<!--        <input type="text" th:field="{age}" id="age" placeholder="Age">-->
+<!--        <br/>-->
+<!--    <input type="submit" value="Update User">-->
+<!--</form>-->
+
+
+
+
+
+
+
+<!--<form action="/update" method="POST">-->
+<!--    <input type="hidden" name="id" value="${user.id}">-->
+
+<!--    <label for="firstName">FirstName</label>-->
+<!--    <input type="text" name="firstName" id="firstName">-->
+
+<!--    <label for="secondName">SecondName</label>-->
+<!--    <input type="text" name="secondName" id="secondName">-->
+
+<!--    <label for="age">Age</label>-->
+<!--    <input type="text" name="age" id="age">-->
+
+<!--    <input type="submit" value="Update User">-->
+<!--</form>-->
 <!--<a href="/">AT MAIN PAGE</a>-->
 
 <!--<div class="form-wrap">-->

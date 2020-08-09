@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
@@ -7,30 +8,34 @@
 <body>
 
     <p th:text="${str}"/>
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>FirstName</th>
-            <th>SecondName</th>
-            <th>Age</th>
-        </tr>
-        <th:block th:each="msq" items="${users}">
-            <h1 th:text="${msq}"></h1>
-            <tr>
-                <td>${msq.id}</td>
-                <td>${msq.firstName}</td>
-                <td>${msq.secondName}</td>
-                <td>${msq.age}</td>
-                <th><a href="/update?id=${msq.id}">Change</a></th>
-                <th><a href="/delete?id=${msq.id}">Delete</a></th>
-            </tr>
-        </th:block>
-    </table>
+
+    <p>
+        <a href="/add">Add User</a>
+    </p>
 
     <table>
-    <a href="addUser.html">Add User</a>
-<!--    <a href="deleteUser.html">Delete User</a>-->
-<!--    <a href="updateUser.html">Update User</a>-->
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>SecondName</th>
+                <th>Age</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.firstName}"></td>
+                <td th:text="${user.secondName}"></td>
+                <td th:text="${user.age}"></td>
+                <th><a href="/update?id=${user.id}">Change</a></th>
+                <th><a href="/delete?id=${user.id}">Delete</a></th>
+<!--                <td><a th:href="@{update/{id}(id=${user.id})}">Update</a></td>-->
+<!--                <td><a th:href="@{delete/{id}(id=${user.id})}">Delete</a></td>-->
+            </tr>
+        <tbody>
     </table>
 
 </body>

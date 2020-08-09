@@ -26,6 +26,7 @@ public class UserController {
     public String users(Model model) {
         String str = "Hello! Its users page";
         List<User> users = userService.getAllUsers();
+        model.addAttribute("str", str);
         model.addAttribute("users", users);
         return "users";
     }
@@ -40,24 +41,28 @@ public class UserController {
         userService.addUser(new User(firstName, secondName, age));
         List<User> userList = userService.getAllUsers();
         model.addAttribute("users", userList);
-        //model.addAttribute("aaa", "hello");
         return "users";
     }
 
-    @GetMapping("/delete")
-    public String deleteUsers(@RequestParam String id, ModelMap model) {
-        userService.deleteUser(Long.parseLong(id));
+    @GetMapping("delete/{id}")
+    public String deleteUser(@PathVariable("id") int id, Model model) {
+        userService.deleteUser(id);
         List<User> userList = userService.getAllUsers();
         model.addAttribute("users", userList);
-        //model.addAttribute("aaa", "hello");
         return "users";
     }
 
-    @GetMapping("/update")
-    public String updateGet(@RequestParam String id, ModelMap model) {
-        model.addAttribute("user", userService.getUserById(Long.parseLong(id)));
+    @GetMapping("update/{id}")
+    public String updateUser(@PathVariable("id") int id, ModelMap model) {
+        model.addAttribute("users", userService.getUserById(id));
         return "updateUser";
     }
+
+//    @PostMapping("/update")
+//    public String updatePost(User user) {
+//        userService.updateUser(user);
+//        return "redirect:/users";
+//    }
 
     @PostMapping("/update")
     public String updatePost(@RequestParam Long id, String firstName, String secondName,
@@ -68,10 +73,6 @@ public class UserController {
         user.setAge(age);
         userService.updateUser(user);
         model.addAttribute("users", userService.getAllUsers());
-
-//        userService.updateUser(new User(id, firstName, secondName, age));
-//        model.addAttribute("messages", userService.getAllUsers());
-        return "redirect:users";
+        return "users";
     }
-
 }
