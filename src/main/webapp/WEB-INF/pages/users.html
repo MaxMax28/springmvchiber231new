@@ -7,12 +7,10 @@ xmlns:th="http://thymeleaf.org">
 </head>
 <body>
 
-    <p th:text="${str}"/>
-
     <p>
         <a href="/add">Add User</a>
     </p>
-
+    <h2>Users</h2>
     <table>
         <thead>
             <tr>
@@ -30,10 +28,8 @@ xmlns:th="http://thymeleaf.org">
                 <td th:text="${user.firstName}"></td>
                 <td th:text="${user.secondName}"></td>
                 <td th:text="${user.age}"></td>
-                <th><a href="/update?id=${user.id}">Change</a></th>
-                <th><a href="/delete?id=${user.id}">Delete</a></th>
-<!--                <td><a th:href="@{update/{id}(id=${user.id})}">Update</a></td>-->
-<!--                <td><a th:href="@{delete/{id}(id=${user.id})}">Delete</a></td>-->
+                <th><a th:href="@{/update/{id}(id=${user.id})}">Change</a></th>
+                <th><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></th>
             </tr>
         <tbody>
     </table>

@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "firstName")
     private String firstName;
@@ -20,30 +20,30 @@ public class User {
     private String secondName;
 
     @Column(name = "age")
-    private int age;
+    private Long age;
 
     public User() {
 
     }
 
-    public User(String firstName, String secondName, int age) {
+    public User(String firstName, String secondName, Long age) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.age = age;
     }
 
-    public User(int id, String firstName, String secondName, int age) {
+    public User(Long id, String firstName, String secondName, Long age) {
         this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
         this.age = age;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,11 +63,11 @@ public class User {
         this.secondName = secondName;
     }
 
-    public int getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 
