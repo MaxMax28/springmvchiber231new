@@ -5,29 +5,17 @@
     <title>Update_User</title>
 </head>
 <body>
-<input action="/update" method="POST">
-<!--    <p>id</p>-->
-<!--    <input title="id" type="text" name="id" value="${user.id}">-->
-<!--    <p>firstName</p>-->
-<!--    <input title="firstName" type="text" name="firstName" value="${user.firstName}">-->
-<!--    <p>secondName</p>-->
-<!--    <input title="secondName" type="text" name="secondName" value="${user.secondName}">-->
-<!--    <p>age</p>-->
-<!--    <input title="age" type="text" name="age" value="${user.age}">-->
-<!--    <input type="submit" value="ok">-->
-
-
-
-    <p>id</p>
-    <input th:text="${user.id}"></input>
-    <p>firstName</p>
-    <input th:text="${user.firstName}"></input>
-    <p>secondName</p>
-    <input th:text="${user.secondName}"></input>
-    <p>age</p>
-    <input th:text="${user.age}"></input>
-    <input type="submit" value="ok">
-
+<form th:action="@{/update}" method="post"
+          th:object="${user}">
+        <input th:value="${user.id}" name="id"></input>
+        <label for="firstName">FirstName</label>
+        <input type="text" class="form-control" id="firstName" th:field="*{firstName}"> </input>
+        <label for="secondName">SecondName</label>
+        <input type="text" class="form-control" id="secondName" th:field="*{secondName}"> </input>
+        <label for="age">Age</label>
+        <input type="text" class="form-control" id="age" th:field="*{age}"> </input>
+        <input type="submit" value="ok">
+        <a href="/">AT MAIN PAGE</a>
 </form>
 </body>
 </html>

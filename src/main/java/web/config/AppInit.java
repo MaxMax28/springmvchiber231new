@@ -25,14 +25,4 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     protected String[] getServletMappings() {
         return new String[] {"/"};
     }
-
-    /* Фильтр для решеия проблемы проблемы с кодировкой, когда при отправке с формы значений
-    с русскими символами в результате будут получаться каракули.
-     */
-//    protected Filter[] getServletFilters() {
-//        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
-//        characterEncodingFilter.setEncoding("UTF-8");
-//        characterEncodingFilter.setForceEncoding(true);
-//        return new Filter[] {characterEncodingFilter};
-//    }
 }
